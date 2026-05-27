@@ -2,8 +2,9 @@ const path = require("path");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Parent folder has multiple Next apps; pin Turbopack to this app's node_modules.
   turbopack: {
-    root: path.join(__dirname)
+    root: path.resolve(__dirname)
   },
   images: {
     remotePatterns: [

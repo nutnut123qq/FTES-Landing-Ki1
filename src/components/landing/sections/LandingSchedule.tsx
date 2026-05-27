@@ -3,23 +3,23 @@ import { MaterialIcon } from "./MaterialIcon";
 const scheduleItems = [
   {
     icon: "video_library",
-    title: "Hình thức:",
-    text: "Học Online qua Google Meet / Zoom kết hợp LMS."
+    title: "Record đầy đủ:",
+    text: "Học xong vẫn xem lại từng buổi để tự ôn trước kỳ thi."
   },
   {
     icon: "timer",
-    title: "Thời lượng:",
-    text: "8 buổi chuyên sâu / mỗi môn."
+    title: "Lộ trình rõ:",
+    text: "Mỗi môn được chia theo nhịp học dễ theo dõi và dễ chốt bài."
   },
   {
     icon: "construction",
-    title: "Công cụ:",
-    text: "Sử dụng hệ thống AI của FTES để luyện tập."
+    title: "Feedback thật:",
+    text: "Ảnh feedback, kết quả và mentor profile đều được đưa lên để bạn xem trước."
   },
   {
     icon: "groups_2",
-    title: "Cộng đồng:",
-    text: "Nhóm Zalo/Discord hỗ trợ giải đáp 24/7."
+    title: "Hỗ trợ sau mua:",
+    text: "Có người kèm để chốt lựa chọn gói, giải đáp và định hướng học tiếp."
   }
 ];
 
@@ -29,7 +29,7 @@ export function LandingSchedule() {
       <div className="mx-auto max-w-7xl text-center">
         <div className="mx-auto max-w-2xl">
           <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-8 text-4xl font-black text-st-on-background">
-            Thông tin chi tiết khóa học
+            Mua gói xong bạn nhận được gì?
           </h2>
           <ul className="space-y-6">
             {scheduleItems.map((row) => (

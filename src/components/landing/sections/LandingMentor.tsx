@@ -89,11 +89,14 @@ export function LandingMentor() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-4 text-4xl font-black text-st-on-background">
-            Mentor & Feedback học viên
+            Mentor đồng hành và feedback thật
           </h2>
+          <p className="mx-auto max-w-3xl text-lg text-st-on-surface-variant">
+            Gặp mentor FTES và đọc chia sẻ thật từ học viên đã hoàn thành khóa — để tự tin hơn
+            trước khi chọn gói phù hợp.
+          </p>
         </div>
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12">
-          {/* Mentor Phan Thanh Huy */}
           <div className="rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest p-8 text-center shadow-sm lg:col-span-4">
             <div className="mx-auto mb-6 flex h-32 w-32 items-center justify-center rounded-full border-4 border-st-secondary/20 bg-st-secondary-container">
               <Image
@@ -107,40 +110,39 @@ export function LandingMentor() {
             <h3 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-2 text-2xl font-bold text-st-on-background">
               Phan Thanh Huy
             </h3>
-            <p className="mb-4 font-bold text-st-secondary">Co-Founder FTES (AI - learning)</p>
+            <p className="mb-4 font-bold text-st-secondary">Mentor đồng hành Kì 1</p>
             <ul className="mb-6 space-y-2 text-left text-sm leading-relaxed text-st-on-surface-variant">
               <li className="flex items-start gap-2">
                 <MaterialIcon name="emoji_events" className="!mt-0.5 !text-base text-yellow-600 shrink-0" filled />
-                <span>Giải Tư Sáng tạo khoa học kĩ thuật cấp Quốc Gia</span>
+                <span>Đồng hành giúp bạn chốt kiến thức đúng trọng tâm thay vì học dàn trải</span>
               </li>
               <li className="flex items-start gap-2">
                 <MaterialIcon name="emoji_events" className="!mt-0.5 !text-base text-yellow-600 shrink-0" filled />
-                <span>Giải Nhất cuộc thi Start-Up (SIU)</span>
+                <span>Phân tích lỗi sai và chỉ ra cách cải thiện nhanh để vào bài tự tin hơn</span>
               </li>
               <li className="flex items-start gap-2">
                 <MaterialIcon name="emoji_events" className="!mt-0.5 !text-base text-yellow-600 shrink-0" filled />
-                <span>Giải Khuyến Khích cuộc thi AIoT Developer InnoWorks 2022</span>
+                <span>Chữa đề, giải thích từng bước và gợi chiến lược học phù hợp từng mức điểm</span>
               </li>
               <li className="flex items-start gap-2">
                 <MaterialIcon name="school" className="!mt-0.5 !text-base text-st-secondary shrink-0" filled />
-                <span>Top 5 SVSX khối ngành Kỹ Thuật năm 2022 - 2023</span>
+                <span>Hỗ trợ học viên chuẩn bị kỹ trước khi mua gói và trong suốt quá trình học</span>
               </li>
               <li className="flex items-start gap-2">
                 <MaterialIcon name="history_edu" className="!mt-0.5 !text-base text-st-secondary shrink-0" filled />
-                <span>Hơn 2 năm kinh nghiệm dạy bồi dưỡng HSG chuyên tin cấp thành phố, tỉnh, quốc gia</span>
+                <span>Luôn có feedback và hướng dẫn cụ thể để bạn thấy rõ giá trị của gói mình chọn</span>
               </li>
             </ul>
             <div className="flex flex-wrap justify-center gap-2">
               <div className="rounded-full bg-st-secondary/10 px-3 py-1 text-xs font-bold text-st-secondary">
-                Co-Founder
+                Mentor
               </div>
               <div className="rounded-full bg-st-tertiary/10 px-3 py-1 text-xs font-bold text-st-tertiary">
-                AI Lead
+                Feedback
               </div>
             </div>
           </div>
 
-          {/* Feedback Images */}
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-8">
             <ImageCarousel images={prfImages} altPrefix="PRF192" label="PRF192" />
             <ImageCarousel images={maeImages} altPrefix="MAE101" label="MAE101" />

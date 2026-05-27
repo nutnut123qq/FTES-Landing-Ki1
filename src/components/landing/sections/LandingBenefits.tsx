@@ -1,170 +1,190 @@
 import { MaterialIcon } from "./MaterialIcon";
 
-const prf192Topics = {
-  theory: [
-    "Dự tính 8 buổi",
-    "Xuất nhập",
-    "Kiểu dữ liệu",
-    "Câu lệnh rẽ nhánh",
-    "Vòng lặp",
-    "Hàm",
-    "Mảng 1 - 2 chiều",
-    "Con trỏ",
-    "OOP cơ bản",
-  ],
-  pe: ["Luyện tập đề làm theo từng buổi"],
-};
-
-const mae101Topics = {
-  math3: [
-    "Hàm và đồ thị",
-    "Nguyên hàm - tích phân",
-    "Ứng dụng",
-    "Bài tập ôn luyện",
-    "Giới hạn - đạo hàm",
-  ],
-  matrix: [
-    "Hệ phương trình tuyến tính",
-    "Các phép toán cơ bản ma trận",
-    "Định thức",
-    "Vector",
-    "Giá trị riêng - vector riêng",
-    "Chéo hóa",
-    "Không gian con",
-  ],
-  fe: [
-    "Chữa chi tiết 3 đề gần nhất",
-    "Tặng video chữa đề từ trước",
-    "Tặng kịp bảng công thức hay dùng",
-    "Trick casio duy nhất tại Funnycodde",
-    "Chữa chi tiết nâng cao aim 9+",
-  ],
-};
-
-function TopicTag({ children, variant = "default" }: { children: React.ReactNode; variant?: "default" | "pe" | "fe" }) {
-  const variantClasses = {
-    default: "bg-st-primary-container text-st-on-primary-container",
-    pe: "bg-st-tertiary-container text-st-on-tertiary-container",
-    fe: "bg-st-tertiary-container text-st-on-tertiary-container",
-  };
-
-  return (
-    <span className={`inline-flex items-center rounded-full px-3 py-1.5 text-sm font-medium ${variantClasses[variant]}`}>
-      {children}
-    </span>
-  );
-}
-
-function CourseCard({
-  code,
-  name,
-  icon,
-  gradient,
-  children,
-}: {
-  code: string;
+type PackageTier = {
   name: string;
-  icon: string;
-  gradient: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <div className="rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest p-8 shadow-sm">
-      <div className="mb-6 flex items-center gap-4">
-        <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-white shadow-md ${gradient}`}>
-          <MaterialIcon name={icon} className="!text-2xl" />
-        </div>
-        <div>
-          <span className="inline-block rounded-lg bg-st-surface-container-high px-2.5 py-0.5 text-xs font-bold tracking-wider text-st-on-surface-variant uppercase">
-            {code}
-          </span>
-          <h3 className="font-[family-name:var(--font-heading),ui-sans-serif] mt-1 text-2xl font-bold text-st-on-background">
-            {name}
-          </h3>
-        </div>
-      </div>
-      {children}
-    </div>
-  );
-}
+  price: string;
+  discount: string;
+  summary: string;
+  bullets: string[];
+  accent: string;
+};
 
-function SectionBlock({
-  title,
-  titleColor,
-  children,
-}: {
+type CoursePackage = {
+  code: string;
   title: string;
-  titleColor: string;
-  children: React.ReactNode;
-}) {
+  intro: string;
+  theme: string;
+  buyUrl: string;
+  packages: PackageTier[];
+};
+
+const FTES_COURSE_URLS = {
+  PRF192:
+    "https://ftes.vn/vi/courses/detail/goi-prf192prf193---nhap-mon-lap-trinh-cc",
+  MAE101: "https://ftes.vn/vi/courses/detail/goi-mae101---toan-cao-cap-cho-lap-trinh"
+} as const;
+
+const courses: CoursePackage[] = [
+  {
+    code: "PRF192",
+    title: "Nhập môn lập trình C/C++",
+    intro: "Dành cho sinh viên muốn học lại từ gốc, làm được bài lab và luyện PE theo dạng thật.",
+    theme: "from-orange-500 to-red-500",
+    buyUrl: FTES_COURSE_URLS.PRF192,
+    packages: [
+      {
+        name: "Basic",
+        price: "239.000 đ",
+        discount: "-20%",
+        summary: "Khóa học BASIC",
+        bullets: [
+          "Video record toàn bộ buổi học để xem lại bất cứ lúc nào",
+          "Ôn từng dạng bài, bám sát kiến thức nền và bài tập chuẩn",
+          "Nhắn mentor khi cần để không bị đứt mạch học"
+        ],
+        accent: "bg-st-surface-container-low",
+      },
+      {
+        name: "Premium",
+        price: "299.000 đ",
+        discount: "-15%",
+        summary: "Khóa học PREMIUM",
+        bullets: [
+          "Bao gồm toàn bộ quyền lợi của Basic",
+          "Nâng cấp chỗ hiểu sâu bản chất để xử lý bài tự tin hơn",
+          "Đồng hành giải thích code, sửa lỗi và tối ưu cách làm"
+        ],
+        accent: "bg-st-primary-fixed",
+      },
+      {
+        name: "Master",
+        price: "369.000 đ",
+        discount: "-18%",
+        summary: "Khóa học MASTER",
+        bullets: [
+          "Bao gồm toàn bộ quyền lợi của Premium",
+          "Lộ trình học sát mục tiêu điểm cao, có nhịp luyện tập riêng",
+          "Phù hợp nếu bạn muốn được kèm sát hơn trong giai đoạn nước rút"
+        ],
+        accent: "bg-st-surface-container-high",
+      }
+    ]
+  },
+  {
+    code: "MAE101",
+    title: "Mathematics for Engineering",
+    intro: "Tập trung đúng dạng bài toán của MAE101: hiểu bản chất, luyện đề và chốt công thức để vào thi tự tin hơn.",
+    theme: "from-cyan-600 to-sky-500",
+    buyUrl: FTES_COURSE_URLS.MAE101,
+    packages: [
+      {
+        name: "Basic",
+        price: "239.000 đ",
+        discount: "-20%",
+        summary: "Khóa học BASIC",
+        bullets: [
+          "Video record toàn bộ buổi học để chủ động học lại",
+          "Học theo từng buổi, bám sát dạng bài và công thức trọng tâm",
+          "Có mentor hỗ trợ khi cần chốt lỗi nhanh"
+        ],
+        accent: "bg-st-surface-container-low",
+      },
+      {
+        name: "Premium",
+        price: "299.000 đ",
+        discount: "-15%",
+        summary: "Khóa học PREMIUM",
+        bullets: [
+          "Bao gồm toàn bộ quyền lợi của Basic",
+          "Được nâng cấp sâu hơn về kỹ năng xử lý bài và tư duy giải nhanh",
+          "Có phần giải thích vì sao sai để tránh lặp lỗi khi thi"
+        ],
+        accent: "bg-st-primary-fixed",
+      },
+      {
+        name: "Master",
+        price: "369.000 đ",
+        discount: "-18%",
+        summary: "Khóa học MASTER",
+        bullets: [
+          "Bao gồm toàn bộ quyền lợi của Premium",
+          "Luyện đề theo lộ trình riêng, tăng tốc vào giai đoạn cận thi",
+          "Phù hợp nếu bạn muốn được mentor theo sát hơn"
+        ],
+        accent: "bg-st-surface-container-high",
+      }
+    ]
+  }
+];
+
+function PackageCard({ tier, buyUrl }: { tier: PackageTier; buyUrl: string }) {
   return (
-    <div className="mb-5 last:mb-0">
-      <h4 className={`mb-3 text-sm font-bold tracking-wide uppercase ${titleColor}`}>{title}</h4>
-      <div className="flex flex-wrap gap-2">{children}</div>
+    <div className={`rounded-[1.75rem] border border-st-outline-variant/15 p-6 shadow-sm ${tier.accent}`}>
+      <div className="mb-4 flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm font-bold tracking-wide text-st-on-surface-variant uppercase">{tier.name}</p>
+          <p className="mt-2 text-3xl font-black text-st-on-background">{tier.price}</p>
+        </div>
+        <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-bold text-rose-500">{tier.discount}</span>
+      </div>
+      <p className="mb-4 text-sm font-semibold text-st-on-background">{tier.summary}</p>
+      <ul className="space-y-3 text-sm leading-relaxed text-st-on-surface-variant">
+        {tier.bullets.map((bullet) => (
+          <li key={bullet} className="flex gap-2">
+            <MaterialIcon name="check_circle" className="!mt-0.5 !text-base text-emerald-600" filled />
+            <span>{bullet}</span>
+          </li>
+        ))}
+      </ul>
+      <a
+        href={buyUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-st-surface-container-high px-4 py-3 text-sm font-bold text-st-on-background transition-colors hover:bg-st-surface-container-highest"
+      >
+        Mua gói này
+      </a>
     </div>
   );
 }
 
 export function LandingBenefits() {
   return (
-    <section className="bg-st-surface-container-low px-8 py-24" id="content">
+    <section className="bg-st-surface-container-low px-8 py-24" id="packages">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
           <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-4 text-4xl font-black text-st-on-background">
-            Nội dung khóa học
+            Chọn gói khóa học
           </h2>
           <p className="text-lg text-st-on-surface-variant">
-            Chương trình được thiết kế bám sát đề cương môn PRF192 &amp; MAE101 tại FPT University.
+            Mỗi môn đều có 3 gói. Bạn có thể mua theo nhu cầu học lại, cần mentor sát hơn hoặc muốn
+            được nâng cấp lộ trình để đẩy điểm.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* PRF192 Card */}
-          <CourseCard
-            code="PRF192"
-            name="Ngôn ngữ lập trình C"
-            icon="code"
-            gradient="bg-orange-500"
-          >
-            <SectionBlock title="Lý thuyết" titleColor="text-orange-500">
-              {prf192Topics.theory.map((topic) => (
-                <TopicTag key={topic}>{topic}</TopicTag>
-              ))}
-            </SectionBlock>
-            <SectionBlock title="Ôn tập PE" titleColor="text-red-500">
-              {prf192Topics.pe.map((topic) => (
-                <TopicTag key={topic} variant="pe">
-                  {topic}
-                </TopicTag>
-              ))}
-            </SectionBlock>
-          </CourseCard>
-
-          {/* MAE101 Card */}
-          <CourseCard
-            code="MAE101"
-            name="Toán cao cấp cho Kỹ sư"
-            icon="functions"
-            gradient="bg-violet-500"
-          >
-            <SectionBlock title="Ôn tập kiến thức Toán cấp 3" titleColor="text-violet-500">
-              {mae101Topics.math3.map((topic) => (
-                <TopicTag key={topic}>{topic}</TopicTag>
-              ))}
-            </SectionBlock>
-            <SectionBlock title="Matrix - Vector" titleColor="text-cyan-600">
-              {mae101Topics.matrix.map((topic) => (
-                <TopicTag key={topic}>{topic}</TopicTag>
-              ))}
-            </SectionBlock>
-            <SectionBlock title="Ôn tập FE" titleColor="text-indigo-500">
-              {mae101Topics.fe.map((topic) => (
-                <TopicTag key={topic} variant="fe">
-                  {topic}
-                </TopicTag>
-              ))}
-            </SectionBlock>
-          </CourseCard>
+        <div className="space-y-12">
+          {courses.map((course) => (
+            <div key={course.code} className="rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest p-8 shadow-sm">
+              <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <div className={`inline-flex rounded-full bg-gradient-to-r ${course.theme} px-3 py-1 text-xs font-bold tracking-[0.2em] text-white uppercase`}>
+                    {course.code}
+                  </div>
+                  <h3 className="font-[family-name:var(--font-heading),ui-sans-serif] mt-3 text-3xl font-black text-st-on-background">
+                    {course.title}
+                  </h3>
+                </div>
+                <p className="max-w-2xl text-sm leading-relaxed text-st-on-surface-variant md:text-right md:text-base">
+                  {course.intro}
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+                {course.packages.map((tier) => (
+                  <PackageCard key={tier.name} tier={tier} buyUrl={course.buyUrl} />
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

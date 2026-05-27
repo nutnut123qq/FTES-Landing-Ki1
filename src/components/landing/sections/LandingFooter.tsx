@@ -16,7 +16,8 @@ export function LandingFooter() {
                 alt="FTES logo"
                 width={224}
                 height={84}
-                className="h-[4.5rem] w-auto object-contain"
+                className="h-[4.5rem] w-auto max-h-[4.5rem] object-contain"
+                style={{ width: "auto" }}
               />
             </Link>
             <p className="text-xl leading-tight font-medium text-st-on-background sm:text-[1.75rem]">

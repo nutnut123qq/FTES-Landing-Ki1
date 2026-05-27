@@ -65,7 +65,7 @@ export function LandingCurriculum() {
           <div className="overflow-hidden rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest shadow-sm">
             <div className="flex items-center justify-between bg-st-secondary px-8 py-6 text-white">
               <h3 className="font-[family-name:var(--font-heading),ui-sans-serif] text-2xl font-bold">
-                MAE101: Toán cho CNTT
+                MAE101: Mathematics for Engineering
               </h3>
               <MaterialIcon name="functions" className="!text-3xl text-white" />
             </div>

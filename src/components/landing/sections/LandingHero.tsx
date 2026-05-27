@@ -2,8 +2,11 @@ import Image from "next/image";
 
 import { MaterialIcon } from "./MaterialIcon";
 
-const heroImg =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBfXj5kNvXLcNIYWI59RscEzomA10in7RIFFohHfuR7bGZrv9PchOZGE7sVzBRCz3eNZRZhDsy5ELvqnXenCBkXqOHLUzM_KnXU3y1nl-pyNEgZ-QgV9Df0LXhPSDvdnj22HEfane99NGr0y5sX0hx40Tl-CXbzKT26Ib4wKuTUnTuih1YHol6esBaMOlgv3kdWdCyuT4AWwQgA5tkcngt1SX-9ZAtJqBawgE7JhNF-nlKQCHCSvPFW5JJucJ1vi6noh3-RAoxOaLjc";
+const heroStats = [
+  { label: "Gói BASIC", value: "239k" },
+  { label: "Gói PREMIUM", value: "299k" },
+  { label: "Gói MASTER", value: "369k" }
+];
 
 export function LandingHero() {
   return (
@@ -12,22 +15,22 @@ export function LandingHero() {
         <div className="z-10">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full bg-st-primary-fixed px-4 py-2 text-sm font-bold text-st-on-primary-fixed">
             <MaterialIcon name="auto_awesome" className="!text-sm" filled />
-            Mùa học mới 2026
+            FTES Kì 1 · PRF192 & MAE101
           </div>
           <h1 className="font-[family-name:var(--font-heading),ui-sans-serif] mb-6 text-5xl leading-tight font-black text-st-on-background lg:text-7xl">
-            Khóa học miễn phí Master Kì 1 cho <span className="text-st-primary">PRF192</span> và{" "}
-            <span className="text-st-secondary">MAE101</span>
+            Chọn gói học để <span className="text-st-primary">chốt điểm</span> ngay từ đầu kỳ
           </h1>
           <p className="mb-10 max-w-xl text-xl leading-relaxed text-st-on-surface-variant">
-            Dành cho sinh viên muốn học đúng trọng tâm và có lộ trình rõ ràng để bứt phá điểm số ngay
-            từ học kỳ đầu tiên.
+            FTES Kì 1 đồng hành bạn ôn PRF192 và MAE101 với lộ trình rõ từng tuần. So sánh 3 gói
+            học, làm quen mentor và đọc feedback thật từ các bạn đã học — để chọn gói phù hợp ngay
+            từ đầu kỳ.
           </p>
           <div className="mb-12 flex flex-wrap gap-4">
             {[
-              { icon: "check_circle", label: "Miễn phí" },
-              { icon: "group", label: "Có mentor" },
-              { icon: "map", label: "Có lộ trình" },
-              { icon: "hub", label: "Kết nối FTES" }
+              { icon: "check_circle", label: "3 gói rõ giá" },
+              { icon: "group", label: "Mentor thật" },
+              { icon: "reviews", label: "Feedback thật" },
+              { icon: "map", label: "Lộ trình rõ" }
             ].map((row) => (
               <div
                 key={row.label}
@@ -40,30 +43,68 @@ export function LandingHero() {
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
             <a
-              href="#register"
+              href="#packages"
               className="stitch-action-gradient rounded-full px-10 py-4 text-center text-lg font-bold text-white shadow-xl shadow-st-primary/30 transition-transform hover:scale-105"
             >
-              Đăng ký học miễn phí
+              Xem gói học
             </a>
             <a
-              href="#curriculum"
+              href="#mentor"
               className="rounded-full bg-st-surface-container-high px-10 py-4 text-center text-lg font-bold text-st-primary transition-colors hover:bg-st-surface-container-highest"
             >
-              Xem nội dung khóa học
+              Xem feedback
             </a>
           </div>
         </div>
         <div className="relative">
           <div className="pointer-events-none absolute top-1/2 left-1/2 -z-10 h-[120%] w-[120%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-st-primary/10 to-st-tertiary/10 blur-3xl" />
-          <Image
-            src={heroImg}
-            alt="Student studying with modern tech"
-            width={900}
-            height={680}
-            className="w-full rounded-lg transition-transform duration-500 hover:scale-[1.02]"
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            priority
-          />
+          <div className="overflow-hidden rounded-[2rem] border border-st-outline-variant/15 bg-st-surface-container-lowest p-8 shadow-xl">
+            <div className="mb-6 flex items-center justify-between">
+              <div>
+                <p className="text-sm font-bold tracking-wide text-st-on-surface-variant uppercase">
+                  Gói được mua nhiều nhất
+                </p>
+                <h2 className="font-[family-name:var(--font-heading),ui-sans-serif] text-3xl font-black text-st-on-background">
+                  PRF192 · MAE101
+                </h2>
+              </div>
+              <div className="rounded-full bg-st-primary-fixed px-4 py-2 text-sm font-bold text-st-primary">
+                Kì 1
+              </div>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {heroStats.map((item) => (
+                <div key={item.label} className="rounded-2xl bg-st-surface-container-low p-5 text-center">
+                  <p className="text-sm font-semibold text-st-on-surface-variant">{item.label}</p>
+                  <p className="mt-2 text-3xl font-black text-st-on-background">{item.value}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 grid gap-4 rounded-3xl bg-st-primary p-6 text-white md:grid-cols-[1.2fr_0.8fr]">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-wide text-white/75">Bộ quyền lợi</p>
+                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-white/90">
+                  <li className="flex items-center gap-2">
+                    <MaterialIcon name="check_circle" className="!text-base text-white" filled />
+                    Video record để học lại bất kỳ lúc nào
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <MaterialIcon name="check_circle" className="!text-base text-white" filled />
+                    Chữa bài, phân tích lỗi và lộ trình rõ ràng
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <MaterialIcon name="check_circle" className="!text-base text-white" filled />
+                    Mentor đồng hành trong suốt quá trình học
+                  </li>
+                </ul>
+              </div>
+              <div className="rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+                <p className="text-xs font-bold uppercase tracking-wide text-white/75">Giá từ</p>
+                <p className="mt-2 text-4xl font-black">239k</p>
+                <p className="mt-2 text-sm text-white/80">Mua theo từng môn hoặc chọn combo theo nhu cầu.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

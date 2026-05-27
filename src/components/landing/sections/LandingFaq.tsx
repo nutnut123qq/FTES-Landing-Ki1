@@ -9,20 +9,24 @@ import {
 
 const items = [
   {
-    q: "Khóa học có thực sự miễn phí không?",
-    a: "Có, khóa học Master Kì 1 hoàn toàn miễn phí 100% về học phí. Đây là hoạt động cộng đồng của FTES nhằm hỗ trợ các bạn sinh viên mới."
+    q: "Tôi có thể mua từng môn riêng không?",
+    a: "Có. Bạn có thể đăng ký từng môn riêng, rồi chọn gói Basic, Premium hoặc Master theo nhu cầu học tập."
   },
   {
-    q: "Học chung 2 môn hay tách riêng?",
-    a: "Lịch học sẽ được sắp xếp xen kẽ giữa PRF192 và MAE101 để các bạn có thể tham gia đầy đủ cả 2 môn mà không bị trùng lịch."
+    q: "Basic, Premium và Master khác nhau chỗ nào?",
+    a: "Basic thiên về tự học có record; Premium có thêm mức hỗ trợ sâu hơn; Master dành cho bạn muốn được mentor kèm sát hơn."
   },
   {
-    q: "Nếu nghỉ buổi học có record không?",
-    a: "Mọi buổi học đều được ghi lại và đăng tải lên hệ thống LMS của FTES để các bạn có thể xem lại bất cứ lúc nào."
+    q: "Tôi mất gốc thì có theo được không?",
+    a: "Có. Nội dung được viết lại để đi từ nền tảng trước, sau đó mới nâng lên dạng bài thực hành và luyện đề."
   },
   {
-    q: "Mất gốc hoàn toàn có theo được không?",
-    a: "Chắc chắn là có. Nội dung được thiết kế từ con số 0, đặc biệt dành cho những người chưa biết gì về lập trình hay toán chuyên ngành."
+    q: "Tôi có được xem feedback thật trước khi mua không?",
+    a: "Có. Bạn có thể xem mentor và feedback ngay trên trang này trước khi quyết định đăng ký."
+  },
+  {
+    q: "Nếu muốn học cả 2 môn thì sao?",
+    a: "Bạn có thể tham khảo cả hai gói PRF192 và MAE101 rồi chọn mức hỗ trợ phù hợp cho từng môn."
   }
 ];
 

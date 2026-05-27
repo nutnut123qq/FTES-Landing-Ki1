@@ -16,9 +16,9 @@ const beVietnamPro = Be_Vietnam_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "FTES Master Kì 1 - Lộ trình học tập đột phá",
+  title: "FTES Kì 1 - Gói học PRF192 & MAE101",
   description:
-    "Khóa học miễn phí Master Kì 1 cho PRF192 và MAE101 — lộ trình rõ ràng, mentor đồng hành."
+    "Gói học PRF192 và MAE101 với mentor đồng hành, feedback thật và lộ trình rõ ràng — chọn gói phù hợp ngay từ đầu kỳ."
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
